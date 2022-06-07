@@ -48,7 +48,7 @@ function Main() {
 
     // generate 10 new dice if game is won, populate unheld dice with new dice
     function roll() {
-        if (tenzies){
+        if (tenzies) {
             setDice(newDice())
             setTenzies(false)
             return
@@ -88,7 +88,7 @@ function Main() {
 
     // https://thewebdev.info/2021/11/20/how-to-conditionally-render-items-based-on-viewport-size-in-react/
     const [screenIsDesktop, setScreenIsDesktop] = React.useState(window.innerWidth > 640)
-    const updateMedia = () =>{
+    const updateMedia = () => {
         setScreenIsDesktop(window.innerWidth > 640)
     }
     React.useEffect(() => {
@@ -100,14 +100,15 @@ function Main() {
         <main className='w-screen h-screen flex justify-center items-center'>
             <div className='bg-gray-200 rounded-xl flex flex-col justify-center items-center'>
                 <h1 className='font-bold text-3xl my-8 sm:mb-0'>Tenzies</h1>
-                {screenIsDesktop && 
-                <p className=' text-lg mt-4 mb-8 text-center'>Click a die to hold.<br /> Hold ten of the same die to win.</p>}
+                {screenIsDesktop &&
+                    <p className=' text-lg mt-4 mb-8 text-center'>
+                    Click a die to hold.<br />Hold ten of the same die to win.</p>}
                 <div className='grid grid-cols-2 gap-6 auto-cols-auto mx-16
                 sm:grid-cols-5'>
                     {renderDice()}
                     {tenzies && <Confetti />}
                 </div>
-                <button onClick={roll} className=' bg-blue-600 text-white rounded-lg py-3 px-8 my-8 text-xl font-semibold cursor-pointer'>{tenzies ? 'New Game': 'Roll'}</button>
+                <button onClick={roll} className=' bg-blue-600 text-white rounded-lg py-3 px-8 my-8 text-xl font-semibold cursor-pointer'>{tenzies ? 'New Game' : 'Roll'}</button>
             </div>
         </main>
     )
